@@ -1,0 +1,25 @@
+{
+  "name": "befit-backend",
+  "version": "1.0.0",
+  "description": "Backend for the BeFit app, made during COLAB20",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Colab20-Team-5/backend.git"
+  },
+  "author": "diamondzxd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Colab20-Team-5/backend/issues"
+  },
+  "homepage": "https://github.com/Colab20-Team-5/backend#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.0"
+  }
+}
