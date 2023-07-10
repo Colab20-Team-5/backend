@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const User = require('./userModel'); // Import the User model from userModel.js
+const User = require('./models/userModel'); // Import the User model from userModel.js
 
 const app = express();
 const PORT = 3000;
