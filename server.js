@@ -62,6 +62,6 @@ app.listen(PORT, () => {
 
 // Gracefully disconnect from MongoDB when the server is closed
 process.on('SIGINT', () => {
-  MongooseWrapper.disconnect();
+    mongoose.disconnect().then(console.log('Database Connection closed.'));
   process.exit(0);
 });
