@@ -6,49 +6,18 @@ const User = require('./models/userModel'); // Import the User model from userMo
 const app = express();
 const PORT = 3000;
 
-// Mongoose Wrapper
-const MongooseWrapper = {
-  connect: (mongoURI) => {
-    mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    });
+const start = async () => {
+    try {
+      await mongoose.connect(
+        "mongodb+srv://befit:L1CGELf3nAf80mnI@befit.q7dl2b0.mongodb.net/?retryWrites=true&w=majority"
+      );
+      console.log("Database Connection Established!");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    mongoose.connection.on('connected', () => {
-      console.log('Connected to MongoDB');
-    });
-
-    mongoose.connection.on('error', (err) => {
-      console.error('Error connecting to MongoDB:', err);
-    });
-
-    mongoose.connection.on('disconnected', () => {
-      console.log('Disconnected from MongoDB');
-    });
-  },
-
-  disconnect: () => {
-    mongoose.disconnect();
-  },
-
-  getMongooseInstance: () => {
-    return mongoose;
-  },
-};
-
-// Replace 'your_mongo_uri' with your actual MongoDB connection URI
-const mongoURI = 'mongodb://localhost:27017/your_database_name';
-
-// Connect to MongoDB using the Mongoose wrapper
-MongooseWrapper.connect(mongoURI);
-
-// Middleware for accessing the Mongoose instance
-app.use((req, res, next) => {
-  req.mongoose = MongooseWrapper.getMongooseInstance();
-  next();
-});
+start();
 
 // Parse incoming requests with JSON payloads
 app.use(bodyParser.json());
