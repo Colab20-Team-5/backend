@@ -14,6 +14,7 @@ const start = async () => {
       console.log("Database Connection Established!");
     } catch (error) {
       console.error(error);
+      process.exit(500);
     }
   };
 
