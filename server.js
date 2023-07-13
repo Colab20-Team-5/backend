@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const User = require('./models/userModel'); // Import the User model from userModel.js
 
 const app = express();
-const PORT = process.env.PORT | 3000;
+const PORT = 5000;
 
 const start = async () => {
     try {
