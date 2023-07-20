@@ -20,3 +20,4 @@ jobs:
         with:
           git_remote_url: 'ssh://dokku@dokku.codinger.net:22/befit-backend'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          deploy_branch: 'main'
