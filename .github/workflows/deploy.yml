@@ -18,6 +18,7 @@ jobs:
       - name: Push to dokku
         uses: dokku/github-action@master
         with:
+          # specify the `main` branch as the remote branch to push to
+          branch: 'main'
           git_remote_url: 'ssh://dokku@dokku.codinger.net:22/befit-backend'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          deploy_branch: 'main'
