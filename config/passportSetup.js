@@ -15,6 +15,7 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       const email = profile.emails[0].value;
+      const ImgUrl = profile._json.image.url.replace("?sz=50", "")
 
       // check if user already exists
       const currentUser = await User.findOne({ googleId: profile.id });
@@ -23,7 +24,7 @@ passport.use(
         return done(null, currentUser);
       } else {
         // register user and return
-        const newUser = await new User({ email: email, googleId: profile.id }).save();
+        const newUser = await new User({ email: email, googleId: profile.id, thumbnail : ImgUrl, firstName : profile.name.givenName }).save();
         return done(null, newUser);
       }
     }

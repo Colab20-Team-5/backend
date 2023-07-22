@@ -12,8 +12,13 @@ const userSchema = new Schema({
         type: String,
         default: null
     },
-    profile: {
-        type: Object
+    firstName: {
+        type: String,
+        default: null
+    },
+    thumbnail: {
+        type: String,
+        default: null
     }
 });
 
