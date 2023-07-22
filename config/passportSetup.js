@@ -15,6 +15,7 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       const email = profile.emails[0].value;
+      console.log(profile);
       const ImgUrl = profile._json.image.url.replace("?sz=50", "")
 
       // check if user already exists
