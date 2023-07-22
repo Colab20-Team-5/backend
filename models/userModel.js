@@ -1,10 +1,17 @@
-const mongoose = require('mongoose');
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
-const UserSchema = new mongoose.Schema({
-  name: String,
-  email: String,
+// Basic User Schema for Google Authentication
+const userSchema = new Schema({
+    email: {
+        type: String,
+        required: [true, 'email required'],
+        unique: [true, 'email already registered']
+    },
+    googleId: {
+        type: String,
+        default: null
+    }
 });
 
-const User = mongoose.model('User', UserSchema);
-
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);
