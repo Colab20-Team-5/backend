@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 
 // Routes and other middleware can be added here
 app.get('/', (req, res) => {
-  res.send('Hello from BeFit! Version 1.1 :)');
+  res.status(200).json({status : 'Online', version: 1.1});
 });
 
 // Sample API: Fetch all users
