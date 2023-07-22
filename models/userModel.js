@@ -11,6 +11,9 @@ const userSchema = new Schema({
     googleId: {
         type: String,
         default: null
+    },
+    profile: {
+        type: Object
     }
 });
 
