@@ -94,6 +94,11 @@ app.post('/api/users', async (req, res) => {
     }
 });
 
+// Sample API for workout plan
+app.get('/api/getworkoutplan', async (req,res) => {
+    res.status(200).json({ days: ["Monday", "Tuesday"], time: ["1 hour"], muscles: ["abs", "legs"]})
+})
+
 
 // Start the server
 app.listen(PORT, () => {
